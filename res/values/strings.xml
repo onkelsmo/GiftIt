@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">GiftIt</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_contact">ContactActivity</string>
+    <string name="title_activity_contact_list">ContactListActivity</string>
+    <string name="title_activity_group">GroupActivity</string>
+    <string name="title_activity_contact_card">ContactCardActivity</string>
+    <string name="title_activity_setup">SetupActivity</string>
+    <string name="hint_address">Adresse</string>
+    <string name="hint_birthday">Geburtstag</string>
+    <string name="hint_name">Name</string>
+    <string name="hint_phone">Telefon</string>
+    <string name="hint_mail">E-Mail</string>
+    <string name="button_save">Speichern</string>
+    <string name="hint_Description">Bezeichnung</string>
+    <string name="label_newGroup">Neue Gruppe</string>
+    <string name="label_Contact">Kontakt</string>
+    <string name="hint_houseNo">Hausnr.</string>
+    <string name="hint_no">Nr.</string>
+    <string name="hint_street">Straße</string>
+    <string name="hint_plz">PLZ</string>
+    <string name="hint_city">Ort</string>
+    <string name="button_calendar">Kalendar</string>
+    <string name="button_contacts">Kontakte</string>
+    <string name="button_gifts">Geschenke</string>
+    <string name="label_start">Start</string>
+    <string name="label_setup">Einstellungen</string>
+    <string name="button_import_contacts">Kontakte importieren</string>
+
+</resources>

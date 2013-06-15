@@ -1,0 +1,129 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ContactCardActivity" >
+
+    <Spinner
+        android:id="@+id/spGroup"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tfMail"
+        android:layout_below="@+id/tfMail" />
+
+    <Spinner
+        android:id="@+id/spGift"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/spGroup"
+        android:layout_below="@+id/spGroup" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btSaveContact"
+        android:layout_alignParentTop="true"
+        android:text="@string/label_Contact"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/tfPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tfContactName"
+        android:layout_below="@+id/tfBirthday"
+        android:layout_marginTop="81dp"
+        android:ems="10"
+        android:hint="@string/hint_phone"
+        android:inputType="phone" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/tfStreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/btSaveContact"
+        android:layout_below="@+id/tfBirthday"
+        android:ems="10"
+        android:hint="@string/hint_street"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/tfHouseNo"
+        android:layout_width="75dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/tfStreet"
+        android:layout_alignBottom="@+id/tfStreet"
+        android:layout_toRightOf="@+id/btSaveContact"
+        android:ems="10"
+        android:hint="@string/hint_no" />
+
+    <EditText
+        android:id="@+id/tfBirthday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tfStreet"
+        android:layout_below="@+id/tfContactName"
+        android:ems="10"
+        android:hint="@string/hint_birthday"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/tfContactName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tfBirthday"
+        android:layout_alignRight="@+id/tfHouseNo"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="@string/hint_name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/tfPostCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tfStreet"
+        android:layout_toLeftOf="@+id/textView1"
+        android:ems="10"
+        android:hint="@string/hint_plz"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/tfCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tfHouseNo"
+        android:layout_below="@+id/tfStreet"
+        android:layout_toRightOf="@+id/tfPostCode"
+        android:ems="10"
+        android:hint="@string/hint_city"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/tfMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tfPhone"
+        android:layout_below="@+id/tfPhone"
+        android:ems="10"
+        android:hint="@string/hint_mail"
+        android:inputType="textEmailAddress" />
+
+    <Button
+        android:id="@+id/btSaveContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="saveContactClick"
+        android:text="@string/button_save" />
+
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:title="Einstellungen"
+    />
+    <item 
+		android:id="@+id/contact"
+		android:title="Neuer Kontakt"
+	/>
+    <item 
+        android:id="@+id/group"
+        android:title="Neue Gruppe" 
+    />
+    <item
+        android:id="@+id/gift"
+        android:title="Neues Geschenk"
+    />
+    <item
+        android:id="@+id/event"
+        android:title="Neuer Anlass" 
+	/>
+    
+</menu>
