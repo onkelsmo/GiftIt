@@ -1,5 +1,6 @@
 package com.example.giftit;
  
+import java.util.Calendar;
 import java.util.List;
 
 import com.classes.giftit.Contact;
@@ -48,8 +49,7 @@ public class ContactCardActivity extends Activity implements StringConstants{
 	* @param MenuItem item 
 	* @return bool
 	* 
-	*/
-		
+	*/		
 	public boolean onOptionsItemSelected(MenuItem item)	
 	{		
 		switch (item.getItemId()){
@@ -107,6 +107,19 @@ public class ContactCardActivity extends Activity implements StringConstants{
 			contact.setTelephoneNumber(Integer.parseInt(s));
 		}
 		contact.seteMailAddress(tfeMail.getText().toString());
+		
+		// jsmolka - 20130616 - setting the birthday in the systemcalendar
+		/*
+		Calendar cal = Calendar.getInstance();
+		Intent intent = new Intent(Intent.ACTION_EDIT);
+		intent.setType("vnd.android.cursor.item/event");
+		intent.putExtra("beginTime", cal.getTimeInMillis());
+		intent.putExtra("alldDay", true);
+		//intent.putExtra("rrule", "FREQ=YEARLY");
+		intent.putExtra("entTime", cal.getTimeInMillis()+60*60*1000);
+		intent.putExtra("title", "A Test Event");
+		startActivity(intent);
+		*/
 		
 		try{
 			dataSource.createContact(contact);
