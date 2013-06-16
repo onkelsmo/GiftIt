@@ -1,19 +1,31 @@
 package com.example.giftit;
 
+import java.util.GregorianCalendar;
+
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.CalendarContract;
+import android.provider.CalendarContract.Calendars;
+import android.provider.CalendarContract.Events;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.CalendarView;
+import android.widget.Toast;
+
 import com.database.giftit.data.DatabaseHandler;
 import com.interfaces.giftit.StringConstants;
 
 public class MainActivity extends Activity implements StringConstants{
 		
 		
-		DatabaseHandler dbHandler;
-		
+	DatabaseHandler dbHandler;
+			
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,21 +34,29 @@ public class MainActivity extends Activity implements StringConstants{
 //        dbHandler.onCreate(db);
 
     }
-        
-    public void OpenCalendarClick(View view){
-    	//TODO öffnen der Kalender Ansicht
-    	//Intent intent = new Intent(this,)
-    	//startActivity(Intent);
+
+	// jsmolka - 20130616 - Calendar_Implementation
+    /**
+     * 
+     * OpenCalendarClick - the clickevent to open the systemcalendar
+     * 
+     * @param view
+     */
+    public void OpenCalendarClick(View view)
+    {
+    	long time = new GregorianCalendar().getTimeInMillis();
+    	Uri uri = Uri.parse("content://com.android.calendar/time/" + time);
+    	Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+    	startActivity(intent);
     }
     
     public void OpenContactsClick(View view){
     	Intent intent = new Intent(this,ContactListActivity.class);
     	startActivity(intent);
-    	
     }
     
     public void OpenGiftClick(View view){
-    	//TODO öffnen der Geschenkeansicht
+    	//TODO ï¿½ffnen der Geschenkeansicht
     	//Intent intent = new Intent(this,GiftListActivity.class);
     	//startActivity(intent);
     }
