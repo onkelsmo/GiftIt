@@ -30,6 +30,9 @@ public class ContactDataSource implements StringConstants{
 			CONTACT_EMAIL
 	};
 	
+	public boolean isOpen(){
+		return db.isOpen();
+	}
 	public ContactDataSource(Context context){
 		dbHandler = new DatabaseHandler(context);
 	}
@@ -44,23 +47,30 @@ public class ContactDataSource implements StringConstants{
 
 	  public void createContact(Contact contact) {
 	    ContentValues values = new ContentValues();
-	    values.put(CONTACT_ID, contact.getContact_ID());
 	    values.put(CONTACT_FIRSTNAME, contact.getFirstName());
 	    values.put(CONTACT_LASTNAME, contact.getLastName());
 	    values.put(CONTACT_STREET, contact.getAddress());
 	    values.put(CONTACT_POST_CODE, contact.getPostCode());
 	    values.put(CONTACT_HOUSENUMBER, contact.getHouseNumber());
 	    values.put(CONTACT_CITY, contact.getCity());
-	    values.put(CONTACT_BIRTHDAY, contact.getBirthday().toString());
+	    values.put(CONTACT_BIRTHDAY, contact.getBirthday());
 	    values.put(CONTACT_EMAIL, contact.geteMailAddress());
 	    values.put(CONTACT_PHONE, contact.getTelephoneNumber());
 	    
-	    long insertId = db.insert(CONTACT_TABLE, null,
-	        values);
-	    
-	    if(insertId < 0){
-	    	throw new SQLiteException(INSERT_ERROR + CONTACT_TABLE);
+	    long insertId = 0;
+	    try{
+	    	insertId = db.insert(CONTACT_TABLE, null,
+	    			values);
+	    }catch(Exception e){
+	    	System.out.print("SQL Fehler " + e.getCause());
+	    	System.out.println();
+	    	System.out.print("Kontakt ID " + insertId);
 	    }
+	    
+//	    if(insertId <= 0){
+//	    	throw new SQLiteException(INSERT_ERROR + CONTACT_TABLE);
+	    	
+//	    }
 	  }
 	  
 
@@ -100,8 +110,8 @@ public class ContactDataSource implements StringConstants{
 		    contact.setHouseNumber(cursor.getString(4));
 		    contact.setPostCode(cursor.getInt(5));
 		    contact.setCity(cursor.getString(6));
-		    contact.setBirthday(contact.convertStringToDate(cursor.getString(7)));
-		    contact.setTelephoneNumber(cursor.getInt(8));
+		    contact.setBirthday(cursor.getString(7));
+		    contact.setTelephoneNumber(cursor.getString(8));
 		    contact.seteMailAddress(cursor.getString(9));
 		    return contact;
 		  }

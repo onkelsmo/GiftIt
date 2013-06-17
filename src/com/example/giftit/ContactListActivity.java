@@ -1,5 +1,6 @@
 package com.example.giftit;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.classes.giftit.Contact;
@@ -24,11 +25,23 @@ public class ContactListActivity extends ListActivity {
 		dataSource = new ContactDataSource(this);
 		dataSource.open();
 		
-		List<Contact> contacts = dataSource.getAllContacts();	
+		List<Contact> contacts = dataSource.getAllContacts();
 		
 		ArrayAdapter<Contact> adapter = new ArrayAdapter<Contact>(this, android.R.layout.simple_list_item_1, contacts);
 		setListAdapter(adapter);
 	}
+	
+	 @Override
+	  protected void onResume() {
+	    dataSource.open();
+	    super.onResume();
+	  }
+
+	  @Override
+	  protected void onPause() {
+	    dataSource.close();
+	    super.onPause();
+	  }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -60,10 +73,12 @@ public class ContactListActivity extends ListActivity {
 					startActivity(groupIntent);
 					return true;
 			case R.id.gift:
-					// TODO Implementing Intent to GiftActivity
+//					Intent giftIntent = new Intent(this, GiftCardActivity.class);
+//					startActivity(giftIntent);
 					return true;
 			case R.id.event:
-					// TODO Implementing Intent to EventActivity
+//					Intent eventIntent = new Intent(this, EventActivity.class);
+//					startActivity(eventIntent);
 					return true;			
 			case R.id.action_settings:					
 					Intent actionSettingsIntent = new Intent(this, SetupActivity.class);

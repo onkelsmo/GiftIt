@@ -74,7 +74,7 @@ public class SetupActivity extends Activity implements StringConstants{
 				new String[]{String.valueOf(contactid)},null);
 		
 		if(phoneCursor.moveToFirst()){
-			newContact.setTelephoneNumber(Integer.parseInt(phoneCursor.getString(phoneCursor.getColumnIndex(Phone.NUMBER))));
+			newContact.setTelephoneNumber(phoneCursor.getString(phoneCursor.getColumnIndex(Phone.NUMBER)));
 		}
 		
 		String[] projectionEMail = new String[]{Email.ADDRESS};

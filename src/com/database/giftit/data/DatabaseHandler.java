@@ -3,8 +3,10 @@ package com.database.giftit.data;
 import com.interfaces.giftit.StringConstants;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 public class DatabaseHandler extends SQLiteOpenHelper implements StringConstants{
 
@@ -28,10 +30,10 @@ public class DatabaseHandler extends SQLiteOpenHelper implements StringConstants
 				CONTACT_LASTNAME + TEXT+ COMMA +
 				CONTACT_STREET + TEXT + COMMA + 
 				CONTACT_HOUSENUMBER + TEXT + COMMA + 
-				CONTACT_POST_CODE + TEXT + COMMA + 
+				CONTACT_POST_CODE + INTEGER + COMMA + 
 				CONTACT_CITY + TEXT + COMMA + 
-				CONTACT_BIRTHDAY + DATETIME + COMMA + 
-				CONTACT_PHONE + INTEGER + COMMA +
+				CONTACT_BIRTHDAY + TEXT + COMMA + 
+				CONTACT_PHONE + TEXT + COMMA +
 				CONTACT_EMAIL + TEXT + 
 				");";
 		
@@ -68,14 +70,17 @@ public class DatabaseHandler extends SQLiteOpenHelper implements StringConstants
 				"FOREIGN KEY(" + GROUP_CONTACT_GROUP_ID + ") REFERENCES " + GROUP_TABLE + "(" + GROUP_ID + "), " + 
 				"FOREIGN KEY(" + GROUP_CONTACT_CONTACT_ID + ") REFERENCES " + CONTACT_TABLE + "(" + CONTACT_ID + ")"+
 				");";
-		
- 		db.execSQL(createGiftTable);
- 		db.execSQL(createContactTable);
- 		db.execSQL(createGroupTable);
- 		db.execSQL(createEventTable);
- 		db.execSQL(createSetupTable);
- 		db.execSQL(createGroupContactTable);
- 		db.execSQL(createContactGiftTable);
+		try{
+			db.execSQL(createGiftTable);
+			db.execSQL(createContactTable);
+			db.execSQL(createGroupTable);
+			db.execSQL(createEventTable);
+			db.execSQL(createSetupTable);
+			db.execSQL(createGroupContactTable);
+			db.execSQL(createContactGiftTable);
+		}catch(Exception e){
+			System.out.print("Fehler!");
+		}
 	}
 
 	@Override

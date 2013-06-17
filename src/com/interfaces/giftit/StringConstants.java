@@ -9,6 +9,7 @@ public interface StringConstants {
 	 */
 	public static final String EMPTY_STRING = "";
 	public static final String COMMA = ", ";
+	public static final String LEERZEICHEN = " ";
 	public static final String GROUP_SAVED = "Neue Gruppe wurde gespeichert";
 	public static final String CONTACT_SAVED = "Neuer Kontakt wurde gespeichert";
 	

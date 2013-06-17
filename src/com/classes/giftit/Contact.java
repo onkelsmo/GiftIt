@@ -5,11 +5,13 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import com.interfaces.giftit.StringConstants;
+
 
 /*
  * Kontakt
  */
-public class Contact{
+public class Contact implements StringConstants{
 
 	/*
 	 * Attribute
@@ -21,8 +23,8 @@ public class Contact{
 	private String houseNumber;
 	private int postCode;
 	private String city;
-	private Date birthday;
-	private int telephoneNumber;
+	private String birthday;
+	private String telephoneNumber;
 	private String eMailAddress;
 
 	/*
@@ -36,8 +38,8 @@ public class Contact{
 	 * Konstruktor
 	 */
 	public Contact(int contact_ID, String lastName, String firstName,
-			String address, String houseNumber, int postCode, String city, Date birthday,
-			int telephoneNumber, String eMailAddress) {
+			String address, String houseNumber, int postCode, String city, String birthday,
+			String telephoneNumber, String eMailAddress) {
 		super();
 		this.contact_ID = contact_ID;
 		this.lastName = lastName;
@@ -94,19 +96,19 @@ public class Contact{
 		this.houseNumber = houseNumber;
 	}
 
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 
-	public int getTelephoneNumber() {
+	public String getTelephoneNumber() {
 		return telephoneNumber;
 	}
 
-	public void setTelephoneNumber(int telephoneNumber) {
+	public void setTelephoneNumber(String telephoneNumber) {
 		this.telephoneNumber = telephoneNumber;
 	}
 
@@ -172,5 +174,11 @@ public class Contact{
 		Date date = new Date(calendar.getTimeInMillis());
 		return date;
 	}
-
+	
+	@Override
+	public String toString(){
+		String contactString = firstName + LEERZEICHEN + lastName + "\n" +
+				birthday;
+		return contactString;
+	}
 }
