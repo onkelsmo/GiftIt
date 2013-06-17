@@ -134,6 +134,7 @@ public class ContactCardActivity extends Activity implements StringConstants{
 			toast.show();
 		}finally{
 			dataSource.close();
+			finish();
 		}
 		
 	}
